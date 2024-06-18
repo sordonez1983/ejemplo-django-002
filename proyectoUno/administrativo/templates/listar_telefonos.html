@@ -1,0 +1,32 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h3>Lista de Números Telefónicos</h3>
+  <p><b>Número de teléfonos: ({{numero_telefonos}})</b> </p>
+  <table id="tabla_datos">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Teléfono</th>
+      <th>Tipo</th>
+      <th>Estudiante</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for e in telefonos  %}
+      <tr>
+        <td>{{e.id}}</td>
+        <td>{{e.telefono}}</td>
+        <td>{{e.tipo}}</td>
+        <td>{{e.estudiante.apellido}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tabla_datos').DataTable();
+        });
+    </script>
+{% endblock %}
